@@ -1,0 +1,67 @@
+<h2 class="text-center" style="color: #2c3e50; font-family: 'Inter', sans-serif;">{%= __("Fuel Analytics Dashboard") %}</h2>
+<p class="text-center text-muted">{%= filters.from_date %} to {%= filters.to_date %}</p>
+<hr style="border-top: 2px solid #3498db;">
+
+<!-- Nice visual summary cards for printing -->
+<div class="row" style="margin-bottom: 25px;">
+    <div class="col-xs-6">
+        <div style="background-color: #f8f9fa; padding: 20px; border-radius: 8px; border-left: 6px solid #3498db; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+            <p style="margin: 0; color: #7f8c8d; font-size: 14px; text-transform: uppercase; font-weight: bold;">Total Fuel Issued</p>
+            <!-- Note: We aggregate dynamically in print format below -->
+            <h2 style="margin: 5px 0 0 0; color: #2c3e50; font-size: 28px;" id="total_fuel_print">0 <small style="font-size: 14px;">Liters</small></h2>
+        </div>
+    </div>
+    <div class="col-xs-6">
+        <div style="background-color: #f8f9fa; padding: 20px; border-radius: 8px; border-left: 6px solid #2ecc71; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+            <p style="margin: 0; color: #7f8c8d; font-size: 14px; text-transform: uppercase; font-weight: bold;">Total Fuel Cost</p>
+            <h2 style="margin: 5px 0 0 0; color: #2c3e50; font-size: 28px;" id="total_cost_print">0</h2>
+        </div>
+    </div>
+</div>
+
+<table class="table table-bordered table-striped table-hover" style="border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+	<thead style="background-color: #2c3e50; color: white;">
+		<tr>
+			<th style="width: 25%; padding: 12px;">{%= __("Vehicle") %}</th>
+			<th style="width: 20%; padding: 12px;" class="text-right">{%= __("Fuel Issued (L)") %}</th>
+			<th style="width: 20%; padding: 12px;" class="text-right">{%= __("Cost") %}</th>
+			<th style="width: 15%; padding: 12px;" class="text-right">{%= __("KM Logged") %}</th>
+            <th style="width: 20%; padding: 12px;" class="text-right">{%= __("Efficiency (KM/L)") %}</th>
+		</tr>
+	</thead>
+	<tbody>
+        {% 
+            var total_f = 0; 
+            var total_c = 0;
+        %}
+		{% for(var i=0, l=data.length; i<l; i++) { %}
+            {% 
+                total_f += (data[i].total_issued || 0);
+                total_c += (data[i].total_cost || 0);
+            %}
+			<tr>
+				<td style="font-weight: 500;">{%= data[i].vehicle %}</td>
+				<td class="text-right">{%= data[i].total_issued %}</td>
+				<td class="text-right" style="color: #27ae60; font-weight: bold;">{%= frappe.format(data[i].total_cost, {fieldtype: 'Currency'}) %}</td>
+				<td class="text-right">{%= data[i].distance_covered %}</td>
+                <td class="text-right">
+                    {% if(data[i].efficiency > 8) { %}
+                        <span style="color: #2ecc71; font-weight: bold;">{%= data[i].efficiency.toFixed(2) %}</span>
+                    {% } else { %}
+                        <span style="color: #e74c3c; font-weight: bold;">{%= data[i].efficiency.toFixed(2) %}</span>
+                    {% } %}
+                </td>
+			</tr>
+		{% } %}
+	</tbody>
+</table>
+
+<script>
+    // Update the top UI blocks with exactly calculated values
+    document.getElementById('total_fuel_print').innerHTML = '{%= total_f.toFixed(2) %} <small style="font-size: 14px;">Liters</small>';
+    document.getElementById('total_cost_print').innerHTML = '{%= frappe.format(total_c, {fieldtype: "Currency"}) %}';
+</script>
+
+<p class="text-muted text-right" style="margin-top: 30px; font-size: 12px; font-style: italic;">
+    Report Generated on: {%= frappe.datetime.now_datetime() %}
+</p>
