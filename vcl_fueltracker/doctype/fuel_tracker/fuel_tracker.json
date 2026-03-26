@@ -1,0 +1,176 @@
+{
+ "actions": [],
+ "autoname": "format:FT-{YYYY}-{MM}-{####}",
+ "creation": "2026-03-26 14:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "transaction_date",
+  "transaction_type",
+  "fuel_type",
+  "location",
+  "sb_receive",
+  "supplier",
+  "quantity_received",
+  "invoice_number",
+  "rate",
+  "cb_1",
+  "total_amount",
+  "received_by",
+  "sb_issue",
+  "vehicle",
+  "current_odometer",
+  "fuel_issued",
+  "cb_2",
+  "driver_name",
+  "issued_by",
+  "remarks"
+ ],
+ "fields": [
+  {
+   "default": "Today",
+   "fieldname": "transaction_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Transaction Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "transaction_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Transaction Type",
+   "options": "Receive\nIssue",
+   "reqd": 1
+  },
+  {
+   "default": "Diesel",
+   "fieldname": "fuel_type",
+   "fieldtype": "Select",
+   "label": "Fuel Type",
+   "options": "Diesel\nPetrol"
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Data",
+   "label": "Location / Station"
+  },
+  {
+   "depends_on": "eval:doc.transaction_type==\"Receive\"",
+   "fieldname": "sb_receive",
+   "fieldtype": "Section Break",
+   "label": "Receive Details"
+  },
+  {
+   "fieldname": "supplier",
+   "fieldtype": "Link",
+   "label": "Supplier / Received From",
+   "options": "Supplier"
+  },
+  {
+   "fieldname": "quantity_received",
+   "fieldtype": "Float",
+   "label": "Quantity Received (Liters)"
+  },
+  {
+   "fieldname": "invoice_number",
+   "fieldtype": "Data",
+   "label": "Invoice / Receipt Number"
+  },
+  {
+   "default": "0",
+   "fieldname": "rate",
+   "fieldtype": "Currency",
+   "label": "Rate per Liter"
+  },
+  {
+   "fieldname": "cb_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_amount",
+   "fieldtype": "Currency",
+   "label": "Total Amount",
+   "read_only": 1
+  },
+  {
+   "default": "Administrator",
+   "fieldname": "received_by",
+   "fieldtype": "Link",
+   "label": "Received By",
+   "options": "User"
+  },
+  {
+   "depends_on": "eval:doc.transaction_type==\"Issue\"",
+   "fieldname": "sb_issue",
+   "fieldtype": "Section Break",
+   "label": "Issue Details"
+  },
+  {
+   "fieldname": "vehicle",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Vehicle No",
+   "options": "Vehicle"
+  },
+  {
+   "fieldname": "current_odometer",
+   "fieldtype": "Float",
+   "label": "Current Odometer (KM)"
+  },
+  {
+   "fieldname": "fuel_issued",
+   "fieldtype": "Float",
+   "label": "Fuel Issued (Liters)"
+  },
+  {
+   "fieldname": "cb_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "driver_name",
+   "fieldtype": "Select",
+   "label": "Driver Name",
+   "options": "\nMwangi\nThomas\nEdwin\nDavid"
+  },
+  {
+   "fieldname": "issued_by",
+   "fieldtype": "Link",
+   "label": "Issued By",
+   "options": "User"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Purpose / Route / Remarks"
+  }
+ ],
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-03-26 14:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "VCL Fuel Tracker",
+ "name": "Fuel Tracker",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1,
+   "submit": 1,
+   "cancel": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}
