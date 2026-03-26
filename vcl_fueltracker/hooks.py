@@ -1,0 +1,9 @@
+app_name = "vcl_fueltracker"
+app_title = "VCL Fuel Tracker"
+app_publisher = "Vimit Converters Limited"
+app_description = "Fuel Tracker Custom App for Vimit Converters Limited"
+app_email = "tanuj@vimitconverters.com"
+app_license = "mit"
+required_apps = ["erpnext"]
+fixtures = []
+hide_in_installer = []
