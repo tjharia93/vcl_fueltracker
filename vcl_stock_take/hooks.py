@@ -1,7 +1,7 @@
-app_name = "vcl_fueltracker"
-app_title = "VCL Fuel Tracker"
+app_name = "vcl_stock_take"
+app_title = "VCL Stock Take"
 app_publisher = "Vimit Converters Limited"
-app_description = "Fuel Tracker Custom App for Vimit Converters Limited"
+app_description = "Stock Take Custom App for Vimit Converters Limited"
 app_email = "tanuj@vimitconverters.com"
 app_license = "mit"
 required_apps = ["erpnext"]

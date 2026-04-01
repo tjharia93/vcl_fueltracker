@@ -1,0 +1,208 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2026-04-01 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "count_date",
+  "count_time",
+  "company",
+  "department",
+  "location_store",
+  "count_shift",
+  "cb_header_1",
+  "comparison_mode",
+  "variance_status",
+  "sb_responsibility",
+  "prepared_by",
+  "verified_by",
+  "approved_by",
+  "cb_resp_1",
+  "remarks",
+  "sb_totals",
+  "total_lines",
+  "total_variance_lines",
+  "total_variance_value",
+  "sb_items",
+  "items",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Naming Series",
+   "options": "INK-.YYYY.-.#####",
+   "reqd": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "count_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Count Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "count_time",
+   "fieldtype": "Time",
+   "label": "Count Time"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "department",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Department",
+   "options": "Department"
+  },
+  {
+   "fieldname": "location_store",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Location / Store",
+   "reqd": 1
+  },
+  {
+   "fieldname": "count_shift",
+   "fieldtype": "Select",
+   "label": "Count Shift",
+   "options": "\nMorning\nAfternoon\nNight\nFull Day"
+  },
+  {
+   "fieldname": "cb_header_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Physical Only",
+   "fieldname": "comparison_mode",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Comparison Mode",
+   "options": "Physical Only\nERP Compare",
+   "reqd": 1
+  },
+  {
+   "default": "No Comparison",
+   "fieldname": "variance_status",
+   "fieldtype": "Select",
+   "label": "Variance Status",
+   "options": "No Comparison\nMatched\nVariance Found\nUnder Review",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sb_responsibility",
+   "fieldtype": "Section Break",
+   "label": "Responsibility"
+  },
+  {
+   "fieldname": "prepared_by",
+   "fieldtype": "Link",
+   "label": "Prepared By",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "verified_by",
+   "fieldtype": "Link",
+   "label": "Verified By",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "approved_by",
+   "fieldtype": "Link",
+   "label": "Approved By",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "cb_resp_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Remarks"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "sb_totals",
+   "fieldtype": "Section Break",
+   "label": "Totals"
+  },
+  {
+   "fieldname": "total_lines",
+   "fieldtype": "Int",
+   "label": "Total Lines",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_variance_lines",
+   "fieldtype": "Int",
+   "label": "Total Variance Lines",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_variance_value",
+   "fieldtype": "Currency",
+   "label": "Total Variance Value",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sb_items",
+   "fieldtype": "Section Break",
+   "label": "Items"
+  },
+  {
+   "fieldname": "items",
+   "fieldtype": "Table",
+   "label": "Items",
+   "options": "Ink Stock Count Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Ink Stock Count",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-04-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Stock Control",
+ "name": "Ink Stock Count",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}
