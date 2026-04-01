@@ -1,0 +1,248 @@
+{
+ "actions": [],
+ "creation": "2026-04-01 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "item",
+  "item_code",
+  "item_name",
+  "ink_category",
+  "stock_uom",
+  "cb_item_1",
+  "supplier",
+  "pack_size",
+  "sb_quantities",
+  "opening_qty",
+  "received_qty",
+  "issued_qty",
+  "closing_qty",
+  "cb_qty_1",
+  "location",
+  "expiry_date",
+  "batch_no",
+  "remarks",
+  "sb_erp_linkage",
+  "erp_warehouse",
+  "mapping_status",
+  "count_basis",
+  "cb_erp_1",
+  "physical_qty_std",
+  "standard_uom",
+  "sb_variance",
+  "erp_qty",
+  "variance_qty",
+  "variance_percent",
+  "cb_var_1",
+  "valuation_rate",
+  "variance_value",
+  "requires_review",
+  "variance_remark"
+ ],
+ "fields": [
+  {
+   "fieldname": "item",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Item",
+   "options": "Item",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "item.item_code",
+   "fieldname": "item_code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Item Code",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "item.item_name",
+   "fieldname": "item_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Item Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "ink_category",
+   "fieldtype": "Select",
+   "label": "Ink Category",
+   "options": "\nOffset\nUV\nOther Consumables\nChemical\nAdhesive\nCleaning Material\nOther"
+  },
+  {
+   "fetch_from": "item.stock_uom",
+   "fieldname": "stock_uom",
+   "fieldtype": "Link",
+   "label": "Stock UOM",
+   "options": "UOM",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb_item_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "supplier",
+   "fieldtype": "Link",
+   "label": "Supplier",
+   "options": "Supplier"
+  },
+  {
+   "fieldname": "pack_size",
+   "fieldtype": "Float",
+   "label": "Pack Size"
+  },
+  {
+   "fieldname": "sb_quantities",
+   "fieldtype": "Section Break",
+   "label": "Quantities"
+  },
+  {
+   "fieldname": "opening_qty",
+   "fieldtype": "Float",
+   "label": "Opening Qty"
+  },
+  {
+   "fieldname": "received_qty",
+   "fieldtype": "Float",
+   "label": "Received Qty"
+  },
+  {
+   "fieldname": "issued_qty",
+   "fieldtype": "Float",
+   "label": "Issued Qty"
+  },
+  {
+   "fieldname": "closing_qty",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Closing Qty",
+   "reqd": 1
+  },
+  {
+   "fieldname": "cb_qty_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Data",
+   "label": "Location / Bin"
+  },
+  {
+   "fieldname": "expiry_date",
+   "fieldtype": "Date",
+   "label": "Expiry Date"
+  },
+  {
+   "fieldname": "batch_no",
+   "fieldtype": "Data",
+   "label": "Batch No"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Remarks"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "sb_erp_linkage",
+   "fieldtype": "Section Break",
+   "label": "ERP Linkage"
+  },
+  {
+   "fieldname": "erp_warehouse",
+   "fieldtype": "Link",
+   "label": "ERP Warehouse",
+   "options": "Warehouse"
+  },
+  {
+   "fieldname": "mapping_status",
+   "fieldtype": "Select",
+   "label": "Mapping Status",
+   "options": "\nMapped\nUnmapped\nPartial"
+  },
+  {
+   "fieldname": "count_basis",
+   "fieldtype": "Select",
+   "label": "Count Basis",
+   "options": "\nManual\nERP Pulled\nAdjusted"
+  },
+  {
+   "fieldname": "cb_erp_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "physical_qty_std",
+   "fieldtype": "Float",
+   "label": "Physical Qty (Std UOM)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "standard_uom",
+   "fieldtype": "Link",
+   "label": "Standard UOM",
+   "options": "UOM",
+   "read_only": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "sb_variance",
+   "fieldtype": "Section Break",
+   "label": "Variance"
+  },
+  {
+   "fieldname": "erp_qty",
+   "fieldtype": "Float",
+   "label": "ERP Qty"
+  },
+  {
+   "fieldname": "variance_qty",
+   "fieldtype": "Float",
+   "label": "Variance Qty",
+   "read_only": 1
+  },
+  {
+   "fieldname": "variance_percent",
+   "fieldtype": "Percent",
+   "label": "Variance %",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb_var_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "valuation_rate",
+   "fieldtype": "Currency",
+   "label": "Valuation Rate"
+  },
+  {
+   "fieldname": "variance_value",
+   "fieldtype": "Currency",
+   "label": "Variance Value",
+   "read_only": 1
+  },
+  {
+   "fieldname": "requires_review",
+   "fieldtype": "Check",
+   "label": "Requires Review"
+  },
+  {
+   "fieldname": "variance_remark",
+   "fieldtype": "Small Text",
+   "label": "Variance Remark"
+  }
+ ],
+ "istable": 1,
+ "links": [],
+ "modified": "2026-04-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Stock Control",
+ "name": "Ink Stock Count Item",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
